@@ -7,10 +7,14 @@ function generatePassword() {
   var passwordLength = window.prompt("How many characters do you need?\nPlease choose a number between 8 and 128");
 
   // Validate prompt response and use alert method to force user to correct response
-  while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    window.alert("Input not valid");
-    passwordLength = window.prompt("How many characters do you need?\nPlease choose a number between 8 and 128");
+  if (!passwordLength) {
+    return placeholder;
+  } else {
+    while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+      window.alert("Input not valid");
+      passwordLength = window.prompt("How many characters do you need?\nPlease choose a number between 8 and 128");
     }
+  }
   console.log(passwordLength);
     
   // Confirm method to ask user character type (like lowercase, uppercase, numeric, and/or special)
